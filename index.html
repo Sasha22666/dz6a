@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ссылки</title>
+</head>
+
+<body>
+    <style>
+        /*Способ 1 - Ссылки расположены друг за другом в строку. Разделители сделаны как рамки.
+        Достоинтсво - легко в исполнении. Недостаток - если понадобится применить стиль к контейнеру каждой отдельной ссылки,
+        надо будет переделывать код*/
+        div.sposob1 a {
+            border-right-style: solid;
+            border-color: red;
+            color: green;
+        }
+        a:last-child {
+            border: hidden !important
+        }
+
+        /*Способ 2 - Ссылки расположены в ячейках таблицы. Разделители сделаны как рамочка ячеек таблицы. 
+        На мой взгляд - самый потимальный вариант*/
+        div.sposob2 td {
+            border-right: solid red;
+        }
+        div.sposob2 a {
+            color: green;
+        }
+        td:last-child {
+            border-right: hidden !important
+        }
+
+        /*Способ 3 - Ссылки расположены каждая в отдельной контейнере div.
+        Разделители сделаны с использованием псевдоэлемента.
+        Недостаток - разделитель имеет не совсем такой вид, какой ожидался*/
+        div.sposob3 div {
+            display: inline-block;
+        }
+        div.sposob3 a {
+            color: green;
+        }
+        div.sposob3 div:not(:last-child)::after {
+            content: '|';
+            color: red
+        }
+        :hover {
+            color: red !important
+        }
+    </style>
+
+    <div class="sposob1">
+        <a href="https://piphia.ru/znachenie-tsifry-1-v-zhizni-cheloveka.html">первая ссылка</a>
+        <a href="https://moonorganizer.com/ru/cifra-2-numerologija/">вторая ссылка</a>
+        <a href="https://numeroscop.ru/znachenie_chisel/chislo_3.html">третья ссылка</a>
+        <a href="https://numeroscop.ru/znachenie_chisel/chislo_4.html">четвертая ссылка</a>
+        <a href="https://numeroscop.ru/znachenie_chisel/chislo_5.html">пятая ссылка</a>
+    </div>
+    <br>
+    <div class="sposob2">
+        <table>
+            <tr>
+                <td><a href="https://piphia.ru/znachenie-tsifry-1-v-zhizni-cheloveka.html">первая ссылка</a></td>
+                <td><a href="https://moonorganizer.com/ru/cifra-2-numerologija/">вторая ссылка</a></td>
+                <td><a href="https://numeroscop.ru/znachenie_chisel/chislo_3.html">третья ссылка</a></td>
+                <td><a href="https://numeroscop.ru/znachenie_chisel/chislo_4.html">четвертая ссылка</a></td>
+                <td><a href="https://numeroscop.ru/znachenie_chisel/chislo_5.html">пятая ссылка</a></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div class="sposob3">
+        <div><a href="https://piphia.ru/znachenie-tsifry-1-v-zhizni-cheloveka.html">первая ссылка</a></div>
+        <div><a href="https://moonorganizer.com/ru/cifra-2-numerologija/">вторая ссылка</a></div>
+        <div><a href="https://numeroscop.ru/znachenie_chisel/chislo_3.html">третья ссылка</a></div>
+        <div><a href="https://numeroscop.ru/znachenie_chisel/chislo_4.html">четвертая ссылка</a></div>
+        <div><a href="https://numeroscop.ru/znachenie_chisel/chislo_5.html">пятая ссылка</a></div>
+    </div>
+
+</body>
+
+</html>
